@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f6f2">
+<title>梅花易數・時間起卦</title>
+<style>
+:root{--paper:#f7f6f2;--white:#fff;--ink:#292922;--muted:#77766e;--line:#e7e5dd;--red:#9d4a3b;--wash:#f2e9df;--green:#4d6553}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;line-height:1.65}button,input{font:inherit}.wrap{max-width:1100px;margin:auto;padding:34px 28px 70px}.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--line)}.brand{font-size:13px;letter-spacing:.16em;color:var(--muted)}.mark{font-family:serif;color:var(--red);font-size:20px;margin-right:10px}.tag{border:1px solid var(--line);padding:5px 11px;font-size:12px;color:var(--muted)}
+.hero{padding:52px 0 32px;display:flex;justify-content:space-between;gap:20px;align-items:end}.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--red)}h1{font-family:"Songti TC",serif;font-weight:500;font-size:clamp(34px,5vw,56px);letter-spacing:.04em;margin:7px 0 8px}.sub{color:var(--muted);font-size:14px;margin:0}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--ink);padding:10px 17px;background:var(--ink);color:white;font-size:13px;cursor:pointer;min-height:42px}.btn:hover{background:#414139}.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.btn.secondary:hover{background:#efeee8}
+.timebar{background:var(--wash);padding:15px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.timebar strong{font-weight:500}.timebar span{font-size:13px;color:#68635d}.grid{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}.panel{background:var(--white);border:1px solid var(--line);padding:24px}.panel h2{font-size:14px;letter-spacing:.1em;font-weight:600;margin:0 0 18px}.hex-head{display:flex;justify-content:space-between;align-items:start}.hex-name{font-family:"Songti TC",serif;font-size:30px;letter-spacing:.08em}.hex-meta{font-size:12px;color:var(--muted)}.lines{width:170px;display:flex;flex-direction:column;gap:8px;margin:18px 0 15px}.line{height:7px;background:var(--ink);position:relative}.line.broken{background:transparent}.line.broken:before,.line.broken:after{content:"";position:absolute;top:0;width:44%;height:7px;background:var(--ink)}.line.broken:after{right:0}.line.moving-line{background:var(--red)}.line.broken.moving-line:before,.line.broken.moving-line:after{background:var(--red)}.moving{color:var(--red);font-size:11px;position:absolute;left:calc(100% + 13px);top:-9px;white-space:nowrap}.trigrams{display:flex;gap:8px;flex-wrap:wrap}.trigrams span{font-size:12px;background:#f5f4ef;padding:4px 9px;color:#5d5a53}.triples{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.mini{border-top:1px solid var(--line);padding-top:12px;min-width:0}.mini label{font-size:11px;color:var(--muted);letter-spacing:.12em}.mini strong{display:block;font-family:"Songti TC",serif;font-size:18px;font-weight:500;margin-top:3px}.mini-hex{display:flex;flex-direction:column;gap:4px;width:62px;margin:10px 0 8px}.mini-line{height:4px;background:var(--ink);position:relative}.mini-line.broken{background:transparent}.mini-line.broken:before,.mini-line.broken:after{content:"";position:absolute;top:0;width:43%;height:4px;background:var(--ink)}.mini-line.broken:after{right:0}.mini-line.accent{background:var(--red)}.mini-line.broken.accent:before,.mini-line.broken.accent:after{background:var(--red)}.hex-note{font-size:10px;color:var(--muted)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:10px}.calc div{background:#f8f7f3;padding:12px}.calc small{display:block;font-size:11px;color:var(--muted)}.calc b{font-family:serif;font-size:17px;font-weight:500}.relation{margin-top:14px;border-left:2px solid var(--green);padding:9px 12px;background:#f0f3ee;font-size:13px}.relation b{color:var(--green);font-weight:600}.data{font-size:12px;color:var(--muted);margin-top:16px;border-top:1px solid var(--line);padding-top:12px}.line-reading{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.line-reading h3{font-size:13px;letter-spacing:.08em;font-weight:600;margin:0 0 10px}.texts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.primary-quote{grid-column:1/-1}.quote{font-family:"Songti TC",serif;font-size:17px;line-height:1.8}.quote small{font-family:inherit;font-size:12px;color:var(--muted);display:block;margin-bottom:5px}.plain{display:block;margin-top:8px;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;font-size:12px;line-height:1.7;color:var(--muted)}.footer{text-align:center;color:#929087;font-size:11px;margin-top:26px}.symbol{font-family:serif;color:var(--red);font-size:22px}.note{font-size:12px;color:var(--muted);margin:12px 0 0}.error{display:none;background:#f8e9e5;border:1px solid #e6c7bf;color:#833b30;padding:12px 16px;margin:0 0 16px;font-size:13px}.details{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}.details summary{font-size:12px;color:var(--muted);cursor:pointer}.details p{font-size:12px;color:var(--muted);max-width:780px}.datetime{display:none}
+@media(max-width:720px){.wrap{padding:20px 16px 46px}.top{padding-bottom:18px}.hero{padding:34px 0 24px;display:block}.actions{margin-top:20px;display:grid;grid-template-columns:1fr 1fr}.btn{min-height:44px;padding:10px 12px}.grid,.texts{grid-template-columns:1fr}.primary-quote{grid-column:auto}.panel{padding:19px}.timebar{align-items:flex-start;flex-direction:column}.triples{gap:8px}.mini strong{font-size:16px}.mini-hex{width:56px}.footer{padding:0 8px}}@media(max-width:380px){.wrap{padding-left:12px;padding-right:12px}.panel{padding:16px}.triples{gap:6px}.mini strong{font-size:15px}.actions{grid-template-columns:1fr}.hex-name{font-size:27px}.timebar{padding:13px 15px}}
+</style>
+<script defer src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.7.7/lunar.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  let trigramList = [];
+  let GUA_DATA = null;
+  const branchNames = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const hourNames = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const positions = ['初','二','三','四','五','上'];
+  const monthNames = ['正','二','三','四','五','六','七','八','九','十','冬','臘'];
+  const dayNums = ['一','二','三','四','五','六','七','八','九','十'];
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2,'0');
+  const localDateString = date => `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  function dateParts(value){
+    const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(value);
+    if(!m) throw new Error('請選擇有效的日期與時間。');
+    return {year:+m[1],month:+m[2],day:+m[3],hour:+m[4],minute:+m[5]};
+  }
+  function mod(n,d){return ((n%d)+d)%d;}
+  function chineseDay(day){ if(day<=10)return `初${dayNums[day-1]}`; if(day<20)return `十${dayNums[day-11]}`; if(day===20)return '二十'; if(day<30)return `廿${dayNums[day-21]}`; return '三十'; }
+  function ganzhiYear(lunarYear){
+    const stems=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+    const branches=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+    return stems[mod(lunarYear-4,10)]+branches[mod(lunarYear-4,12)];
+  }
+  function hourIndex(hour){return Math.floor(((hour+1)%24)/2);}
+  function lineName(bit,pos){const kind=bit?'九':'六';return pos===1?`初${kind}`:pos===6?`上${kind}`:`${kind}${positions[pos-1]}`;}
+  function trigramNo(lines){return GUA_DATA.trigrams[lines.join('')]?.number||0;}
+  function identify(lines){
+    const lowerNo=trigramNo(lines.slice(0,3)), upperNo=trigramNo(lines.slice(3,6));
+    const lower=trigramList[lowerNo], upper=trigramList[upperNo];
+    const data=GUA_DATA.hexagrams[lines.join('')];
+    return {lines,lower,upper,lowerNo,upperNo,name:data?.name||'卦名未載',data};
+  }
+  function lineMarkup(lines,moving){
+    return [...lines].reverse().map((bit,i)=>{
+      const pos=6-i, isMoving=pos===moving;
+      const label=isMoving?`<i class="moving">${lineName(bit,pos)}・動</i>`:'';
+      return `<div class="line ${bit?'':'broken'} ${isMoving?'moving-line':''}">${label}</div>`;
+    }).join('');
+  }
+  function smallHex(lines,moving){
+    return [...lines].reverse().map((bit,i)=>`<i class="mini-line ${bit?'':'broken'} ${6-i===moving?'accent':''}"></i>`).join('');
+  }
+  function relation(body,use){
+    const generates={木:'火',火:'土',土:'金',金:'水',水:'木'};
+    const controls={木:'土',土:'水',水:'火',火:'金',金:'木'};
+    if(body.element===use.element)return ['比和','體用同屬'+body.element+'，五行同類。'];
+    if(generates[body.element]===use.element)return ['體生用',`體${body.element}生用${use.element}。`];
+    if(generates[use.element]===body.element)return ['用生體',`用${use.element}生體${body.element}。`];
+    if(controls[body.element]===use.element)return ['體剋用',`體${body.element}剋用${use.element}。`];
+    return ['用剋體',`用${use.element}剋體${body.element}。`];
+  }
+  function renderGuaCard(title,hex,moving,sub){
+    return `<div class="mini"><label>${title}</label><div class="mini-hex">${smallHex(hex.lines,moving)}</div><strong>${hex.upper.image}${hex.lower.image}${hex.name}</strong><div class="hex-note">${hex.upper.n}上${hex.lower.n}下${sub?`・${sub}`:''}</div></div>`;
+  }
+  function renderText(title,hex,isLine=false,moving=0,bit=0){
+    const data=hex.data;
+    const withoutPrefix=text=>text.replace(/^[^：:]+[：:]\s*/, '');
+    if(isLine){
+      const text=data?.yaoCi?.[moving-1];
+      const plain=data?.yaoPlain?.[moving-1];
+      const titleLine=lineName(bit,moving);
+      return `<article class="panel"><h2>動爻爻辭・${titleLine}</h2>${text?`<div class="quote"><small>${hex.name}卦${titleLine}</small>${withoutPrefix(text)}${plain?`<span class="plain">白話：${plain}</span>`:''}</div>`:`<p class="note">未找到這一爻的原文，請核對 JSON 資料。</p>`}</article>`;
+    }
+    return `<article class="panel ${title==='本卦'?'primary-quote':''}"><h2>${title}卦辭・${hex.upper.image}${hex.lower.image}${hex.name}</h2>${data?.guaCi?`<div class="quote"><small>${hex.name}卦卦辭</small>${withoutPrefix(data.guaCi)}<span class="plain">白話：${data.guaPlain||'白話說明尚未編入。'}</span></div>`:`<p class="note">此卦的原文尚未收錄於資料檔。</p>`}</article>`;
+  }
+  function lunarDayText(lunar){
+    const m=Math.abs(lunar.getMonth()), leap=lunar.getMonth()<0?'閏':'';
+    return `${leap}${monthNames[m-1]}月${chineseDay(lunar.getDay())}`;
+  }
+  function calculate(value){
+    if(typeof window.Solar==='undefined') throw new Error('曆法換算程式未能載入。請確認網路連線後重新整理頁面。');
+    const d=dateParts(value);
+    const solar=window.Solar.fromYmd(d.year,d.month,d.day);
+    const lunar=solar.getLunar();
+    const lunarYear=lunar.getYear();
+    const lunarMonth=Math.abs(lunar.getMonth());
+    const lunarDay=lunar.getDay();
+    const yearBranch=mod(lunarYear-4,12)+1;
+    const hourNo=hourIndex(d.hour)+1;
+    const sumUp=yearBranch+lunarMonth+lunarDay;
+    const sumAll=sumUp+hourNo;
+    const upperNo=sumUp%8||8;
+    const lowerNo=sumAll%8||8;
+    const moving=sumAll%6||6;
+    const upper=trigramList[upperNo], lower=trigramList[lowerNo];
+    const base=identify([...lower.lines,...upper.lines]);
+    const changedLines=[...base.lines]; changedLines[moving-1]=changedLines[moving-1]?0:1;
+    const changed=identify(changedLines);
+    const mutual=identify([base.lines[1],base.lines[2],base.lines[3],base.lines[2],base.lines[3],base.lines[4]]);
+    const body=moving<=3?base.upper:base.lower;
+    const use=moving<=3?base.lower:base.upper;
+    const [rel,relText]=relation(body,use);
+    const hourBranch=hourNames[hourNo-1];
+    const hourRange=hourBranch==='子'?'23:00–01:00':`${pad((hourNo-1)*2-1)}:00–${pad((hourNo-1)*2+1)}:00`;
+    const dateDisplay=`${d.year}年${d.month}月${d.day}日`;
+    const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'本機時間';
+    $('time-main').innerHTML=`<strong>起卦時間</strong>　${dateDisplay} ${pad(d.hour)}:${pad(d.minute)}　${tz}`;
+    $('time-lunar').textContent=`農曆 ${ganzhiYear(lunarYear)}年${lunarDayText(lunar)}　・　${hourBranch}時`;
+    $('main-hex-name').textContent=`${base.upper.image}${base.lower.image}${base.name}`;
+    $('main-hex-meta').textContent=`本卦　上${base.upper.n}下${base.lower.n}`;
+    $('main-lines').innerHTML=lineMarkup(base.lines,moving);
+    $('trigrams').innerHTML=`<span>${base.upper.n}・${base.upper.element}・${base.upper.image}</span><span>${base.lower.n}・${base.lower.element}・${base.lower.image}</span>`;
+    $('mini-hexes').innerHTML=renderGuaCard('本卦',base,moving,'動爻標色')+renderGuaCard('互卦',mutual,0,'')+renderGuaCard('變卦',changed,moving,'動爻變陰陽');
+    $('body-value').textContent=`${body.n}${body.element}`;
+    $('use-value').textContent=`${use.n}${use.element}`;
+    $('relation-title').textContent=rel;
+    $('relation-text').textContent=relText;
+    $('numbers').innerHTML=`年支${branchNames[yearBranch-1]} ${yearBranch}　＋　農曆月 ${lunarMonth}　＋　日 ${lunarDay}　＋　${hourBranch}時 ${hourNo}<br>上卦 ${sumUp} ÷ 8 餘 ${sumUp%8||8}　・　下卦 ${sumAll} ÷ 8 餘 ${sumAll%8||8}<br>動爻 ${sumAll} ÷ 6 餘 ${sumAll%6||6}<br><span>時辰範圍 ${hourRange}</span>`;
+    $('gua-texts').innerHTML=renderText('本卦',base)+renderText('互卦',mutual)+renderText('變卦',changed);
+    $('line-reading').innerHTML=renderText('動爻',base,true,moving,base.lines[moving-1]);
+    $('error').style.display='none';
+  }
+  function showError(error){
+    $('error').textContent=error.message||String(error);
+    $('error').style.display='block';
+  }
+  function setCurrent(){
+    const now=new Date(); $('datetime').value=localDateString(now);
+    try{calculate($('datetime').value);}catch(e){showError(e);}
+  }
+  $('now-button').addEventListener('click',setCurrent);
+  $('date-button').addEventListener('click',()=>{$('date-wrap').classList.toggle('datetime');$('datetime').focus();});
+  $('calculate-button').addEventListener('click',()=>{try{calculate($('datetime').value);}catch(e){showError(e);}});
+  $('datetime').addEventListener('change',()=>{try{calculate($('datetime').value);}catch(e){showError(e);}});
+  async function start(){
+    try{
+      const response=await fetch(new URL('data/zhouyi.json',window.location.href));
+      if(!response.ok) throw new Error('無法載入 data/zhouyi.json，請確認該檔案與 index.html 一同上傳。');
+      GUA_DATA=await response.json();
+      if(Object.keys(GUA_DATA.hexagrams||{}).length!==64) throw new Error('卦辭資料檔不完整，請重新下載 data/zhouyi.json。');
+      trigramList=[null,...Object.entries(GUA_DATA.trigrams).map(([bits,t])=>({...t,n:t.name,lines:[...bits].map(Number)})).sort((a,b)=>a.number-b.number)];
+      setCurrent();
+    }catch(e){showError(e);$('time-lunar').textContent='卦辭資料載入失敗';}
+  }
+  start();
+});
+</script>
+</head>
+<body><main class="wrap">
+<header class="top"><div class="brand"><span class="mark">☯</span>梅花易數・時間起卦</div><span class="tag">個人起卦工具</span></header>
+<section class="hero"><div><div class="eyebrow">Plum Blossom Divination · TIME METHOD</div><h1>如果你突然打了個噴嚏</h1><p class="sub">以年月日時起卦，呈現卦象與推演依據。</p></div><div class="actions"><button class="btn" id="now-button">此刻起卦</button><button class="btn secondary" id="date-button">指定日期時間　＋</button></div></section>
+<div id="date-wrap" class="datetime"><label for="datetime">選擇日期與時間</label> <input type="datetime-local" id="datetime"><button class="btn secondary" id="calculate-button">起卦</button></div>
+<div class="error" id="error" role="alert"></div>
+<div class="timebar"><div id="time-main"><strong>起卦時間</strong></div><span id="time-lunar">正在換算農曆…</span></div>
+<section class="grid"><article class="panel"><h2>卦象推演</h2><div class="hex-head"><div><div class="hex-name" id="main-hex-name">—</div><div class="hex-meta" id="main-hex-meta">本卦</div></div></div><div class="lines" id="main-lines" aria-label="本卦六爻"></div><div class="trigrams" id="trigrams"></div><div class="triples" id="mini-hexes"></div></article>
+<article class="panel"><h2>體用與取數</h2><div class="calc"><div><small>體卦</small><b id="body-value">—</b></div><div><small>用卦</small><b id="use-value">—</b></div></div><div class="relation"><b id="relation-title">—</b>　<span id="relation-text"></span></div><div class="data" id="numbers"></div><div id="line-reading" class="line-reading"></div></article></section>
+<section class="texts" id="gua-texts"></section>
+<details class="details"><summary>計算規則與資料說明</summary><p>採傳統年月日時起卦法：農曆年地支數（子1至亥12）＋農曆月＋農曆日取上卦；再加時辰地支數取下卦與動爻。除8或除6餘數為0時，分別以8或6計。八卦數序為乾1、兌2、離3、震4、巽5、坎6、艮7、坤8；爻由初爻往上排列。互卦取本卦二至四爻為下卦、三至五爻為上卦；動爻變陰陽得變卦。動爻在下卦時下卦為用、上卦為體；動爻在上卦時上卦為用、下卦為體。時間採用裝置本地時區，子時按23:00至翌日01:00；農曆換算使用 lunar-javascript 1.7.7（需連網載入）。六十四卦卦名、卦辭與爻辭存於同資料夾的 data/zhouyi.json，另附各卦卦辭的簡要白話。GitHub Pages 可直接載入；直接以 file:// 開啟時，瀏覽器可能禁止讀取 JSON，請透過 GitHub Pages 開啟。</p></details>
+<footer class="footer">經文與白話資料載於 data/zhouyi.json　·　時間與曆法換算以裝置設定為準</footer>
+</main></body></html>
